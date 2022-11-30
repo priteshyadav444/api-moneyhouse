@@ -19,14 +19,17 @@ const Member = require("./modal/Member");
 const Transaction = require("./modal/Transaction");
 const { ObjectId } = require("bson");
 const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
+const cors = require('cors');
 
-// app.use(function (req, res, next) {
-//   res.setHeader(
-//     "Content-Security-Policy",
-//     "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' *; style-src 'self' https://fonts.googleapis.com   ; frame-src 'self'  ; "
-//   );
-//   next();
-// });
+app.use(function (request, response, next) {
+  response.header("Access-Control-Allow-Origin", "*");
+  response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.use(cors({
+  origin: '*'
+}));
 
 mongoose
   .connect(uri, {
