@@ -29,7 +29,7 @@ git clone https://github.com/priteshyadav444/api-moneyhouse.git
       npm install
   
 ### 4) Start Backend using following command
-  *npm run dev*
+  *npm start*
   ```javascript
     package.json File
       "scripts": {
